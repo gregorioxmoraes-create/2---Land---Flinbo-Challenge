@@ -942,6 +942,291 @@ h1 {
   line-height: 1.75;
 }
 
+/* ── Keyframe animations ──────────────────── */
+
+@keyframes gradientBorderShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bannerGlowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 40px rgba(168, 85, 247, 0.32),
+      0 28px 80px rgba(0, 0, 0, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 0 72px rgba(168, 85, 247, 0.52),
+      0 0 48px rgba(236, 72, 153, 0.3),
+      0 28px 80px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-120%) skewX(-14deg); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateX(340%) skewX(-14deg); opacity: 0; }
+}
+
+@keyframes ctaPulseAnim {
+  0%, 100% {
+    box-shadow:
+      0 18px 55px rgba(236, 72, 153, 0.38),
+      0 0 42px rgba(168, 85, 247, 0.38);
+  }
+  50% {
+    box-shadow:
+      0 22px 68px rgba(236, 72, 153, 0.58),
+      0 0 55px rgba(168, 85, 247, 0.52);
+  }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.7); }
+}
+
+/* ── Shared banner elements ───────────────── */
+
+.bannerWrapper {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding-bottom: 56px;
+}
+
+.bannerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 999px;
+  padding: 7px 14px;
+  background: rgba(168, 85, 247, 0.16);
+  border: 1px solid rgba(216, 180, 254, 0.28);
+  color: #f3e8ff;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bannerBadge::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #a855f7;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.9);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+.bannerBadgePink {
+  background: rgba(236, 72, 153, 0.14);
+  border-color: rgba(251, 182, 220, 0.26);
+  color: #fce7f3;
+}
+
+.bannerBadgePink::before {
+  background: #ec4899;
+  box-shadow: 0 0 8px rgba(236, 72, 153, 0.9);
+}
+
+.ctaPulse:not(:hover) {
+  animation: ctaPulseAnim 2.8s ease-in-out infinite;
+}
+
+/* ── Banner 1 ─────────────────────────────── */
+
+.banner1 {
+  border-radius: 36px;
+  padding: 2px;
+  background: linear-gradient(135deg, #a855f7, #ec4899, #7c3aed, #a855f7);
+  background-size: 300% 300%;
+  animation: gradientBorderShift 5s ease infinite, bannerGlowPulse 3.2s ease-in-out infinite;
+}
+
+.banner1Inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  padding: 44px 52px;
+  background: linear-gradient(145deg, rgba(13, 8, 26, 0.97), rgba(9, 5, 18, 0.98));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.b1OrbA,
+.b1OrbB {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(72px);
+  pointer-events: none;
+}
+
+.b1OrbA {
+  width: 280px;
+  height: 280px;
+  top: -90px;
+  left: -70px;
+  background: rgba(168, 85, 247, 0.26);
+}
+
+.b1OrbB {
+  width: 220px;
+  height: 220px;
+  bottom: -70px;
+  right: 60px;
+  background: rgba(236, 72, 153, 0.2);
+}
+
+.b1Shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.055) 50%,
+    transparent 70%
+  );
+  animation: shimmerSweep 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.b1Left {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.b1Title {
+  margin: 14px 0 10px;
+  font-size: clamp(30px, 3.8vw, 50px);
+  line-height: 1;
+  letter-spacing: -0.065em;
+  background: linear-gradient(135deg, #ffffff 15%, #f3e8ff 55%, #e879f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.b1Sub {
+  margin: 0;
+  color: #c4b4f0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.banner1Inner .ctaPulse {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 2;
+  min-width: 210px;
+  justify-content: center;
+}
+
+/* ── Banner 2 ─────────────────────────────── */
+
+.banner2 {
+  border-radius: 36px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ec4899, #a855f7, #6366f1, #ec4899);
+  background-size: 300% 300%;
+  animation: gradientBorderShift 6s ease infinite reverse, bannerGlowPulse 3.8s ease-in-out infinite;
+}
+
+.banner2Inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  padding: 52px;
+  background: linear-gradient(145deg, rgba(12, 7, 22, 0.97), rgba(16, 8, 28, 0.98));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.b2OrbA,
+.b2OrbB {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(88px);
+  pointer-events: none;
+}
+
+.b2OrbA {
+  width: 340px;
+  height: 340px;
+  top: -110px;
+  right: -90px;
+  background: rgba(236, 72, 153, 0.2);
+}
+
+.b2OrbB {
+  width: 260px;
+  height: 260px;
+  bottom: -90px;
+  left: -70px;
+  background: rgba(168, 85, 247, 0.18);
+}
+
+.b2Title {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.02;
+  letter-spacing: -0.065em;
+}
+
+.b2Count {
+  background: linear-gradient(135deg, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.b2Sub {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: #d4c4f5;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.b2Highlight {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: rgba(168, 85, 247, 0.16);
+  border: 1px solid rgba(216, 180, 254, 0.24);
+  color: #f3e8ff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.b2Cta {
+  position: relative;
+  z-index: 2;
+  margin-top: 6px;
+}
+
 @media (max-width: 980px) {
   .desktopNav {
     display: none;
@@ -976,6 +1261,22 @@ h1 {
   .finalCta {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .banner1Inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px;
+    gap: 28px;
+  }
+
+  .banner1Inner .ctaPulse {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .banner2Inner {
+    padding: 40px;
   }
 }
 
@@ -1142,5 +1443,49 @@ h1 {
   .footer {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .bannerWrapper {
+    width: min(100% - 24px, 1120px);
+    padding-bottom: 44px;
+  }
+
+  .banner1,
+  .banner2 {
+    border-radius: 28px;
+  }
+
+  .banner1Inner,
+  .banner2Inner {
+    border-radius: 26px;
+    padding: 28px 24px;
+    gap: 22px;
+  }
+
+  .b1Title {
+    font-size: 34px;
+    margin: 12px 0 8px;
+  }
+
+  .b1Sub {
+    font-size: 15px;
+  }
+
+  .b2Title {
+    font-size: 30px;
+  }
+
+  .b2Sub {
+    font-size: 16px;
+  }
+
+  .b2Highlight {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .b2Cta {
+    width: 100%;
+    justify-content: center;
   }
 }

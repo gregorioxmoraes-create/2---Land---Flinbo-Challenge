@@ -90,6 +90,19 @@ const translations = {
 
     finalTitle: '¿Quieres ser parte del próximo desafío Flinbo?',
     finalText: 'Escríbenos por WhatsApp, confirma tu participación y empieza a crear.',
+
+    banner1Badge: 'DESAFÍO ACTIVO',
+    banner1Title: 'Vende $30 y recibe $30 extra',
+    banner1Sub: 'Tienes 15 días para alcanzar la meta.',
+    banner1Cta: 'Quiero participar',
+
+    banner2Badge: 'RONDA ACTIVA',
+    banner2TitlePre: 'Ya hay',
+    banner2TitlePost: 'creadoras participando',
+    banner2Sub: 'Tu contenido ya puede estar generando ventas.',
+    banner2Highlight: 'Solo necesitas llegar a $30 en ventas válidas.',
+    banner2Cta: 'Entrar al desafío',
+
     footer: 'Flinbo Challenge',
   },
 
@@ -155,6 +168,19 @@ const translations = {
 
     finalTitle: 'Want to be part of the next Flinbo Challenge?',
     finalText: 'Message us on WhatsApp, confirm your participation and start creating.',
+
+    banner1Badge: 'ACTIVE CHALLENGE',
+    banner1Title: 'Sell $30 and get $30 extra',
+    banner1Sub: 'You have 15 days to reach the goal.',
+    banner1Cta: 'Join now',
+
+    banner2Badge: 'ACTIVE ROUND',
+    banner2TitlePre: 'Already',
+    banner2TitlePost: 'creators participating',
+    banner2Sub: 'Your content can already be generating sales.',
+    banner2Highlight: 'You just need to reach $30 in valid sales.',
+    banner2Cta: 'Join the challenge',
+
     footer: 'Flinbo Challenge',
   },
 
@@ -220,6 +246,19 @@ const translations = {
 
     finalTitle: 'Quer fazer parte do próximo desafio Flinbo?',
     finalText: 'Fale com a gente no WhatsApp, confirme sua participação e comece a criar.',
+
+    banner1Badge: 'DESAFIO ATIVO',
+    banner1Title: 'Venda $30 e receba $30 extra',
+    banner1Sub: 'Você tem 15 dias para alcançar a meta.',
+    banner1Cta: 'Quero participar',
+
+    banner2Badge: 'RODADA ATIVA',
+    banner2TitlePre: 'Já são',
+    banner2TitlePost: 'criadoras participando',
+    banner2Sub: 'Seu conteúdo já pode estar gerando vendas.',
+    banner2Highlight: 'Você só precisa chegar a $30 em vendas válidas.',
+    banner2Cta: 'Entrar no desafio',
+
     footer: 'Flinbo Challenge',
   },
 }
@@ -451,6 +490,24 @@ function App() {
         </div>
       </section>
 
+      <div className="bannerWrapper">
+        <div className="banner1">
+          <div className="banner1Inner">
+            <div className="b1OrbA" />
+            <div className="b1OrbB" />
+            <div className="b1Shimmer" />
+            <div className="b1Left">
+              <span className="bannerBadge">{t.banner1Badge}</span>
+              <h2 className="b1Title">{t.banner1Title}</h2>
+              <p className="b1Sub">{t.banner1Sub}</p>
+            </div>
+            <a className="primaryButton ctaPulse" href={whatsappLink} target="_blank" rel="noreferrer">
+              {t.banner1Cta}
+            </a>
+          </div>
+        </div>
+      </div>
+
       <section className="section rulesSection" id="rules">
         <div className="sectionHeader">
           <span className="sectionBadge">02</span>
@@ -473,6 +530,24 @@ function App() {
           </button>
         </div>
       </section>
+
+      <div className="bannerWrapper">
+        <div className="banner2">
+          <div className="banner2Inner">
+            <div className="b2OrbA" />
+            <div className="b2OrbB" />
+            <span className="bannerBadge bannerBadgePink">{t.banner2Badge}</span>
+            <h2 className="b2Title">
+              {t.banner2TitlePre} <span className="b2Count">+{creatorCount}</span> {t.banner2TitlePost}
+            </h2>
+            <p className="b2Sub">{t.banner2Sub}</p>
+            <p className="b2Highlight">{t.banner2Highlight}</p>
+            <a className="primaryButton ctaPulse b2Cta" href={whatsappLink} target="_blank" rel="noreferrer">
+              {t.banner2Cta}
+            </a>
+          </div>
+        </div>
+      </div>
 
       <section className="section faqSection" id="faq">
         <div className="sectionHeader">
