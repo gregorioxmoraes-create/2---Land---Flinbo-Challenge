@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import heroSlide1 from './assets/hero/hero-slide-1.jpg'
 import heroSlide2 from './assets/hero/hero-slide-2.jpg'
@@ -58,7 +58,7 @@ const translations = {
     stepsTitle: 'Pasos para participar',
     stepOneTitle: 'Contáctanos',
     stepOneText:
-      'Escríbenos por WhatsApp y registrate para participar. El desafío empieza cuando el equipo de Flinbo te confirma tu fecha de inicio.',
+      'Escríbenos por WhatsApp y regístrate para participar. El desafío empieza cuando el equipo de Flinbo te confirma tu fecha de inicio.',
     stepTwoTitle: 'Crea contenido',
     stepTwoText:
       'Durante el desafío tienes que subir 2 contenidos nuevos a nuestra plataforma, en cualquiera de nuestros formatos.',
@@ -88,7 +88,7 @@ const translations = {
       { q: '¿Qué pasa si no cumplo el desafío?', a: 'Te quedas con lo que ganaste, pero Flinbo no te paga los $30 extra.' },
     ],
 
-    finalTitle: '¿Querés ser parte del próximo desafío Flinbo?',
+    finalTitle: '¿Quieres ser parte del próximo desafío Flinbo?',
     finalText: 'Escríbenos por WhatsApp, confirma tu participación y empieza a crear.',
     footer: 'Flinbo Challenge',
   },
@@ -247,14 +247,33 @@ function getSavedCreatorCount() {
   return savedCount
 }
 
+const langOptions: { value: Language; label: string }[] = [
+  { value: 'es', label: '🇪🇸 ES' },
+  { value: 'en', label: '🇺🇸 EN' },
+  { value: 'pt', label: '🇧🇷 PT' },
+]
+
 function App() {
   const [language, setLanguage] = useState<Language>('es')
+  const [langOpen, setLangOpen] = useState(false)
   const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null)
   const [isTermsOpen, setIsTermsOpen] = useState(false)
   const [activeSlide, setActiveSlide] = useState(0)
   const [creatorCount, setCreatorCount] = useState(getSavedCreatorCount)
+  const langRef = useRef<HTMLDivElement>(null)
 
   const t = translations[language]
+  const currentLang = langOptions.find((o) => o.value === language)!
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(event.target as Node)) {
+        setLangOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   useEffect(() => {
     const slideTimer = window.setInterval(() => {
@@ -293,15 +312,32 @@ function App() {
         </nav>
 
         <div className="headerActions">
-          <select
-            className="languageSelect"
-            value={language}
-            onChange={(event) => setLanguage(event.target.value as Language)}
-          >
-            <option value="es">🇪🇸 ES</option>
-            <option value="en">🇺🇸 EN</option>
-            <option value="pt">🇧🇷 PT</option>
-          </select>
+          <div className="langDropdown" ref={langRef}>
+            <button
+              className="langDropdownTrigger"
+              onClick={() => setLangOpen((prev) => !prev)}
+              aria-expanded={langOpen}
+              aria-haspopup="listbox"
+            >
+              {currentLang.label}
+              <span className={`langDropdownArrow${langOpen ? ' open' : ''}`}>▾</span>
+            </button>
+            {langOpen && (
+              <div className="langDropdownMenu" role="listbox">
+                {langOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    className={`langDropdownItem${opt.value === language ? ' active' : ''}`}
+                    role="option"
+                    aria-selected={opt.value === language}
+                    onClick={() => { setLanguage(opt.value); setLangOpen(false) }}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
           <a className="smallCta" href={whatsappLink} target="_blank" rel="noreferrer">
             {t.cta}

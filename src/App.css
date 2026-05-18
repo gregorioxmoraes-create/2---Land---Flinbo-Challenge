@@ -168,20 +168,83 @@ button {
   gap: 10px;
 }
 
-.languageSelect {
+.langDropdown {
+  position: relative;
+}
+
+.langDropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   min-height: 42px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  padding: 0 12px;
+  padding: 0 14px;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
-  outline: none;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.languageSelect option {
-  color: #111827;
-  background: #ffffff;
+.langDropdownTrigger:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.langDropdownArrow {
+  font-size: 10px;
+  opacity: 0.5;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.langDropdownArrow.open {
+  transform: rotate(180deg);
+}
+
+.langDropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100%;
+  border-radius: 16px;
+  padding: 6px;
+  background: rgba(16, 11, 29, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+}
+
+.langDropdownItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.langDropdownItem:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.langDropdownItem.active {
+  background: rgba(168, 85, 247, 0.22);
+  color: #f3e8ff;
 }
 
 .smallCta {
@@ -942,10 +1005,15 @@ h1 {
     display: none;
   }
 
-  .languageSelect {
-    max-width: 94px;
+  .langDropdownTrigger {
     min-height: 38px;
     font-size: 13px;
+    padding: 0 12px;
+    gap: 4px;
+  }
+
+  .langDropdownMenu {
+    top: calc(100% + 6px);
   }
 
   .hero {
