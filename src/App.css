@@ -122,10 +122,13 @@ button {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 22px;
-  font-weight: 950;
-  letter-spacing: -0.06em;
+  flex-shrink: 0;
+}
+
+.logoImage {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .brandIcon {
@@ -351,8 +354,8 @@ h1 {
   right: 34px;
   bottom: 34px;
   z-index: 4;
-  padding: 20px;
-  border-radius: 28px;
+  padding: 14px 18px;
+  border-radius: 24px;
   background: rgba(10, 7, 22, 0.74);
   border: 1px solid rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(22px);
@@ -366,7 +369,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .liveTop span {
@@ -378,25 +381,19 @@ h1 {
 .liveTop strong {
   display: grid;
   place-items: center;
-  min-width: 72px;
-  height: 46px;
+  min-width: 66px;
+  height: 40px;
   border-radius: 999px;
   background: linear-gradient(135deg, #a855f7, #ec4899);
-  font-size: 21px;
+  font-size: 19px;
   box-shadow: 0 0 34px rgba(236, 72, 153, 0.42);
 }
 
 .liveCard h3 {
-  margin-bottom: 6px;
-  font-size: 26px;
+  margin-bottom: 10px;
+  font-size: 22px;
   line-height: 1.04;
   letter-spacing: -0.045em;
-}
-
-.liveCard p {
-  margin-bottom: 16px;
-  color: #c9b8ff;
-  line-height: 1.5;
 }
 
 .liveProgressTrack {
@@ -423,6 +420,15 @@ h1 {
   margin-bottom: 30px;
 }
 
+.sectionMiniTitle {
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #d8b4fe;
+  margin: 48px 0 24px;
+  text-shadow: 0 0 18px rgba(168, 85, 247, 0.5);
+}
+
 .sectionHeader h2 {
   max-width: 760px;
   margin: 16px 0 14px;
@@ -440,10 +446,7 @@ h1 {
 }
 
 .tutorialSection {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 30px;
-  align-items: center;
+  display: block;
 }
 
 .videoCard {
@@ -521,8 +524,61 @@ h1 {
   gap: 16px;
 }
 
+.videoCarousel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.videoCarouselItem {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 26px 90px rgba(168, 85, 247, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.videoCarouselItem:hover {
+  transform: translateY(-3px);
+  border-color: rgba(216, 180, 254, 0.32);
+}
+
+.videoThumbnailWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.videoThumbnailImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoThumbnailOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 5, 16, 0.38);
+}
+
+.videoThumbnailWrapper .playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .stepsGrid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .recommendationsGrid {
@@ -609,9 +665,36 @@ h1 {
   align-items: start;
 }
 
+.rulesColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .rulesList {
   display: grid;
   gap: 12px;
+}
+
+.termsButton {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 0 20px;
+  border: 1px solid rgba(216, 180, 254, 0.3);
+  color: #f3e8ff;
+  background: rgba(168, 85, 247, 0.14);
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.termsButton:hover {
+  transform: translateY(-2px);
+  background: rgba(168, 85, 247, 0.24);
+  border-color: rgba(216, 180, 254, 0.48);
 }
 
 .ruleItem {
@@ -779,13 +862,28 @@ h1 {
   border-radius: 20px;
 }
 
+.termsModal {
+  width: min(680px, 100%);
+  border-radius: 30px;
+  padding: 28px;
+  background: #100b1d;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 34px 140px rgba(0, 0, 0, 0.7);
+}
+
+.termsModalText {
+  margin: 0;
+  color: #d8c9ff;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
 @media (max-width: 980px) {
   .desktopNav {
     display: none;
   }
 
   .heroContent,
-  .tutorialSection,
   .rulesSection {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -805,6 +903,10 @@ h1 {
   .recommendationCard,
   .channelCard {
     min-height: auto;
+  }
+
+  .videoCarousel {
+    grid-template-columns: 1fr;
   }
 
   .finalCta {
@@ -863,21 +965,25 @@ h1 {
   }
 
   .liveCard {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-    padding: 18px;
-    border-radius: 24px;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 12px 16px;
+    border-radius: 20px;
   }
 
   .liveTop strong {
-    min-width: 62px;
-    height: 40px;
-    font-size: 18px;
+    min-width: 56px;
+    height: 36px;
+    font-size: 16px;
   }
 
   .liveCard h3 {
-    font-size: 22px;
+    font-size: 18px;
+  }
+
+  .logoImage {
+    height: 34px;
   }
 
   h1 {
