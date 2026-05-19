@@ -1511,6 +1511,45 @@ h1 {
   line-height: 1.4;
 }
 
+/* ── Hero badge enhanced ──────────────────── */
+
+.heroPill {
+  font-size: 15px;
+  padding: 12px 20px;
+  letter-spacing: 0.05em;
+  box-shadow:
+    0 0 44px rgba(168, 85, 247, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+/* ── Steps 2-col + motivation ─────────────── */
+
+.stepsGridTwo {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stepsMotivation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 18px 26px;
+  border-radius: 18px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  color: #f3e8ff;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.stepsMotivationSpark {
+  color: #c084fc;
+  font-size: 18px;
+  flex-shrink: 0;
+  animation: dotPulse 2.4s ease-in-out infinite;
+}
+
 /* ── Tips section ─────────────────────────── */
 
 .tipsSectionInner {
@@ -1519,8 +1558,8 @@ h1 {
 
 .tipsGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin-top: 24px;
 }
 
@@ -1532,10 +1571,10 @@ h1 {
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 16px 50px rgba(0, 0, 0, 0.2);
   border-radius: 24px;
-  padding: 24px 20px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1563,12 +1602,39 @@ h1 {
   flex-shrink: 0;
 }
 
+.tipContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tipTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+  color: #f3e8ff;
+  line-height: 1.2;
+}
+
 .tipCard p {
   margin: 0;
-  color: #e9d5ff;
+  color: #c4b4f0;
   font-size: 14px;
-  font-weight: 700;
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.62;
+}
+
+.tipsClosing {
+  margin-top: 40px;
+  text-align: center;
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #ffffff 15%, #f3e8ff 55%, #e879f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ── Premium step cards ───────────────────── */
@@ -1601,17 +1667,27 @@ h1 {
   animation: floatY 6s ease-in-out infinite;
 }
 
-/* ── Tips responsive ──────────────────────── */
-
-@media (max-width: 1100px) {
-  .tipsGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+/* ── Tips + steps responsive ──────────────── */
 
 @media (max-width: 980px) {
+  .stepsGridTwo {
+    grid-template-columns: 1fr;
+  }
+
   .tipsGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tipCard {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 22px 20px;
+    gap: 18px;
+  }
+
+  .stepsMotivation {
+    font-size: 17px;
   }
 
   .stepCard {
@@ -1620,31 +1696,49 @@ h1 {
 }
 
 @media (max-width: 640px) {
+  .heroPill {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
   .tipsGrid {
-    grid-template-columns: 1fr;
     gap: 10px;
   }
 
   .tipCard {
-    flex-direction: row;
-    align-items: center;
     padding: 18px 16px;
     border-radius: 20px;
-    gap: 16px;
-  }
-
-  .tipCard p {
-    font-size: 15px;
+    gap: 14px;
   }
 
   .tipNumber {
     width: 42px;
     height: 42px;
     border-radius: 12px;
+    margin-top: 2px;
+  }
+
+  .tipTitle {
+    font-size: 16px;
+  }
+
+  .tipCard p {
+    font-size: 14px;
+  }
+
+  .tipsClosing {
+    margin-top: 32px;
+    font-size: 22px;
   }
 
   .tipsSectionInner {
     margin-top: 44px;
+  }
+
+  .stepsMotivation {
+    font-size: 16px;
+    padding: 16px 18px;
+    border-radius: 16px;
   }
 
   .stepCard {

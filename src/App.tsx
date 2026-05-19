@@ -101,7 +101,7 @@ const translations = {
     cta: 'Quiero participar',
 
     heroBadge: 'Flinboost — Desafío oficial',
-    heroTitle: 'Vende $30 y recibe $80 total.',
+    heroTitle: 'Vende $30 y recibe $80.',
     heroText:
       'Tienes 15 días para alcanzar la meta del Flinboost. Llega a $30 en ventas válidas y recibe $50 extra — $80 en total.',
     heroButton: 'Entrar al Flinboost',
@@ -117,12 +117,10 @@ const translations = {
     stepOneTitle: 'Contáctanos',
     stepOneText:
       'Escríbenos por WhatsApp y regístrate para participar. El Flinboost empieza cuando el equipo de Flinbo te confirma tu fecha de inicio.',
-    stepTwoTitle: 'Impulsa tu perfil',
+    stepTwoTitle: 'Llega a $30',
     stepTwoText:
-      'Comparte tu link en tus redes, habla con tus fans y aumenta tu visibilidad para maximizar tus ventas en Flinboost.',
-    stepThreeTitle: 'Llega a $30',
-    stepThreeText:
-      'Las ventas pueden venir de cualquier contenido que tengas en Flinbo. Si llegas a $30 válidos, recibes $50 extra — $80 en total.',
+      'Las ventas pueden venir de cualquier contenido que tengas en Flinbo. Cuando llegues a $30 válidos, el Flinboost te paga $50 extra — recibes $80 en total.',
+    stepsMotivation: 'Impulsa tu perfil y aumenta tus ventas.',
 
     rulesTitle: 'Reglas',
     rulesText: 'Para recibir el bonus del Flinboost, tienes que cumplir las siguientes condiciones.',
@@ -145,14 +143,22 @@ const translations = {
     videoTitle: 'Tutorial Flinboost',
     close: 'Cerrar',
 
-    tipsTitle: '5 formas de vender más',
+    tipsTitle: 'Tips para vender más',
     tips: [
-      'Publica en tus redes sociales',
-      'Habla por DM con tus fans',
-      'Agrega tu link de Flinbo en Linktree',
-      'Comparte tus mejores contenidos de la plataforma',
-      'Más visibilidad = más ventas',
+      {
+        title: 'Comparte en tus redes',
+        text: 'Publica en Instagram, X, Reddit y Telegram. Sube tu mejor contenido y comparte tu link de Flinbo donde ya tienes seguidores.',
+      },
+      {
+        title: 'Habla por DM con tus fans',
+        text: 'Contacta a quienes ya te siguen e interactúan contigo. Envíales tu link de Flinbo y llévalos directo a tu perfil. Esa curiosidad ya existe, solo hay que convertirla.',
+      },
+      {
+        title: 'Agrega tu link en Linktree',
+        text: 'Centraliza tus accesos en un solo lugar y pon tu perfil de Flinbo siempre visible en tu bio. Cualquiera que llegue puede convertirse en una venta.',
+      },
     ],
+    tipsClosing: 'Más visibilidad, más ventas.',
 
     faqTitle: 'Preguntas frecuentes',
     faqs: [
@@ -185,7 +191,7 @@ const translations = {
     banner2Badge: 'FLINBOOST ACTIVO',
     banner2TitlePre: 'Ya hay',
     banner2TitlePost: 'creadoras en el Flinboost',
-    banner2Sub: 'Tu contenido ya puede estar generando ventas ahora mismo.',
+    banner2Sub: 'Tu contenido ya puede estar generando más ventas ahora mismo.',
     banner2Highlight: 'Solo necesitas llegar a $30 en ventas válidas.',
     banner2Cta: 'Entrar al Flinboost',
 
@@ -198,7 +204,7 @@ const translations = {
     cta: 'Join now',
 
     heroBadge: 'Flinboost — Official Challenge',
-    heroTitle: 'Sell $30 and get $80 total.',
+    heroTitle: 'Sell $30 and get $80.',
     heroText:
       'You have 15 days to hit the Flinboost goal. Reach $30 in valid sales and receive $50 extra — $80 total.',
     heroButton: 'Join the Flinboost',
@@ -214,12 +220,10 @@ const translations = {
     stepOneTitle: 'Contact us',
     stepOneText:
       'Message us on WhatsApp and register to participate. The Flinboost starts when the Flinbo team confirms your start date.',
-    stepTwoTitle: 'Boost your profile',
+    stepTwoTitle: 'Reach $30',
     stepTwoText:
-      'Share your link on social media, talk to your fans and increase your visibility to maximize your Flinboost sales.',
-    stepThreeTitle: 'Reach $30',
-    stepThreeText:
-      'Sales can come from any content on your Flinbo profile. If you reach $30 in valid sales, you get $50 extra — $80 total.',
+      'Sales can come from any content on your Flinbo profile. Once you hit $30 in valid sales, Flinboost pays you $50 extra — $80 total.',
+    stepsMotivation: 'Boost your profile and grow your sales.',
 
     rulesTitle: 'Rules',
     rulesText: 'To receive the Flinboost bonus, you need to meet the following conditions.',
@@ -242,14 +246,22 @@ const translations = {
     videoTitle: 'Flinboost Tutorial',
     close: 'Close',
 
-    tipsTitle: '5 ways to sell more',
+    tipsTitle: 'Tips to sell more',
     tips: [
-      'Post on your social media',
-      'DM your fans directly',
-      'Add your Flinbo link on Linktree',
-      'Share your best content from the platform',
-      'More visibility = more sales',
+      {
+        title: 'Share on your socials',
+        text: 'Post on Instagram, X, Reddit and Telegram. Share your best content and drop your Flinbo link where your followers already are.',
+      },
+      {
+        title: 'DM your fans',
+        text: 'Reach out to fans who already follow and engage with you. Send them your Flinbo link and drive them straight to your profile. The interest is already there — just convert it.',
+      },
+      {
+        title: 'Add your link on Linktree',
+        text: 'Put your Flinbo profile front and center in your bio. Anyone landing on your page can become a sale.',
+      },
     ],
+    tipsClosing: 'More visibility, more sales.',
 
     faqTitle: 'FAQ',
     faqs: [
@@ -282,7 +294,7 @@ const translations = {
     banner2Badge: 'FLINBOOST ACTIVE',
     banner2TitlePre: 'Already',
     banner2TitlePost: 'creators in the Flinboost',
-    banner2Sub: 'Your content can already be generating sales right now.',
+    banner2Sub: 'Your content can already be generating more sales right now.',
     banner2Highlight: 'You just need to reach $30 in valid sales.',
     banner2Cta: 'Join the Flinboost',
 
@@ -295,7 +307,7 @@ const translations = {
     cta: 'Quero participar',
 
     heroBadge: 'Flinboost — Desafio oficial',
-    heroTitle: 'Venda $30 e receba $80 no total.',
+    heroTitle: 'Venda $30 e receba $80.',
     heroText:
       'Você tem 15 dias para alcançar a meta do Flinboost. Chegue a $30 em vendas válidas e receba $50 extra — $80 no total.',
     heroButton: 'Entrar no Flinboost',
@@ -311,12 +323,10 @@ const translations = {
     stepOneTitle: 'Entre em contato',
     stepOneText:
       'Fale conosco pelo WhatsApp e registre-se para participar. O Flinboost começa quando a equipe da Flinbo confirma sua data de início.',
-    stepTwoTitle: 'Impulsione seu perfil',
+    stepTwoTitle: 'Chegue a $30',
     stepTwoText:
-      'Compartilhe seu link nas redes, fale com seus fãs e aumente sua visibilidade para maximizar suas vendas no Flinboost.',
-    stepThreeTitle: 'Chegue a $30',
-    stepThreeText:
-      'As vendas podem vir de qualquer conteúdo seu na Flinbo. Se chegar a $30 válidos, recebe $50 extra — $80 no total.',
+      'As vendas podem vir de qualquer conteúdo seu na Flinbo. Quando chegar a $30 válidos, o Flinboost te paga $50 extra — você recebe $80 no total.',
+    stepsMotivation: 'Impulsione seu perfil e aumente suas vendas.',
 
     rulesTitle: 'Regras',
     rulesText: 'Para receber o bônus do Flinboost, você precisa cumprir as seguintes condições.',
@@ -339,14 +349,22 @@ const translations = {
     videoTitle: 'Tutorial Flinboost',
     close: 'Fechar',
 
-    tipsTitle: '5 formas de vender mais',
+    tipsTitle: 'Tips para vender mais',
     tips: [
-      'Publique nas suas redes sociais',
-      'Fale por DM com seus fãs',
-      'Adicione seu link da Flinbo no Linktree',
-      'Compartilhe seus melhores conteúdos da plataforma',
-      'Mais visibilidade = mais vendas',
+      {
+        title: 'Compartilhe nas suas redes',
+        text: 'Publique no Instagram, X, Reddit e Telegram. Compartilhe seu melhor conteúdo e coloque seu link da Flinbo onde já tem seguidores.',
+      },
+      {
+        title: 'Fale por DM com seus fãs',
+        text: 'Contate quem já te segue e interage com você. Mande seu link da Flinbo e leve-os direto ao seu perfil. O interesse já existe, só precisa converter.',
+      },
+      {
+        title: 'Adicione seu link no Linktree',
+        text: 'Centralize todos os seus acessos em um só lugar e deixe seu perfil da Flinbo sempre visível na sua bio. Qualquer visita pode virar venda.',
+      },
     ],
+    tipsClosing: 'Mais visibilidade, mais vendas.',
 
     faqTitle: 'Perguntas frequentes',
     faqs: [
@@ -379,7 +397,7 @@ const translations = {
     banner2Badge: 'FLINBOOST ATIVO',
     banner2TitlePre: 'Já são',
     banner2TitlePost: 'criadoras no Flinboost',
-    banner2Sub: 'Seu conteúdo já pode estar gerando vendas agora mesmo.',
+    banner2Sub: 'Seu conteúdo já pode estar gerando mais vendas agora mesmo.',
     banner2Highlight: 'Você só precisa chegar a $30 em vendas válidas.',
     banner2Cta: 'Entrar no Flinboost',
 
@@ -485,7 +503,7 @@ function App() {
       <section className="hero">
         <div className="heroContent">
           <div className="heroCopy">
-            <div className="pill">{t.heroBadge}</div>
+            <div className="pill heroPill">{t.heroBadge}</div>
             <h1>{t.heroTitle}</h1>
             <p className="heroText">{t.heroText}</p>
             <div className="heroButtons">
@@ -535,7 +553,7 @@ function App() {
 
         <div className="sectionMiniTitle">{t.stepsTitle}</div>
 
-        <div className="stepsGrid">
+        <div className="stepsGrid stepsGridTwo">
           <article className="stepCard">
             <span>01</span>
             <h3>{t.stepOneTitle}</h3>
@@ -546,11 +564,11 @@ function App() {
             <h3>{t.stepTwoTitle}</h3>
             <p>{t.stepTwoText}</p>
           </article>
-          <article className="stepCard">
-            <span>03</span>
-            <h3>{t.stepThreeTitle}</h3>
-            <p>{t.stepThreeText}</p>
-          </article>
+        </div>
+
+        <div className="stepsMotivation">
+          <span className="stepsMotivationSpark">✦</span>
+          {t.stepsMotivation}
         </div>
       </section>
 
@@ -626,10 +644,14 @@ function App() {
             {t.tips.map((tip, i) => (
               <div className="tipCard" key={i}>
                 <span className="tipNumber">{String(i + 1).padStart(2, '0')}</span>
-                <p>{tip}</p>
+                <div className="tipContent">
+                  <h4 className="tipTitle">{tip.title}</h4>
+                  <p>{tip.text}</p>
+                </div>
               </div>
             ))}
           </div>
+          <div className="tipsClosing">{t.tipsClosing}</div>
         </div>
       </section>
 
