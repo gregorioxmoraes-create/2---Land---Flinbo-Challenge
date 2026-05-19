@@ -418,7 +418,7 @@ h1 {
   right: 34px;
   bottom: 34px;
   z-index: 4;
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-radius: 24px;
   background: rgba(10, 7, 22, 0.74);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -428,21 +428,14 @@ h1 {
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-.liveTop {
+.liveCountRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 14px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-.liveTop span {
-  color: #d8c9ff;
-  font-size: 13px;
-  font-weight: 850;
-}
-
-.liveTop strong {
+.liveCountRow strong {
   display: grid;
   place-items: center;
   min-width: 66px;
@@ -451,13 +444,21 @@ h1 {
   background: linear-gradient(135deg, #a855f7, #ec4899);
   font-size: 19px;
   box-shadow: 0 0 34px rgba(236, 72, 153, 0.42);
+  flex-shrink: 0;
 }
 
-.liveCard h3 {
-  margin-bottom: 10px;
-  font-size: 22px;
-  line-height: 1.04;
-  letter-spacing: -0.045em;
+.liveInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.liveInfo span {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
 }
 
 .liveProgressTrack {
@@ -1339,18 +1340,18 @@ h1 {
     left: 14px;
     right: 14px;
     bottom: 14px;
-    padding: 12px 16px;
+    padding: 10px 14px;
     border-radius: 20px;
   }
 
-  .liveTop strong {
+  .liveCountRow strong {
     min-width: 56px;
     height: 36px;
     font-size: 16px;
   }
 
-  .liveCard h3 {
-    font-size: 18px;
+  .liveInfo span {
+    font-size: 14px;
   }
 
   .logoImage {
@@ -1763,5 +1764,66 @@ h1 {
   .sectionMiniTitle {
     font-size: 20px;
     margin: 40px 0 18px;
+  }
+}
+
+/* ── Footer link ──────────────────────────── */
+
+.footerLink {
+  color: #8b7aae;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: #c4b4f0;
+}
+
+/* ── Banner 2 compact (no badge) ──────────── */
+
+.banner2Inner {
+  gap: 14px;
+}
+
+@media (max-width: 980px) {
+  .banner2Inner {
+    padding: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .liveCountRow {
+    gap: 12px;
+  }
+
+  .liveCountRow strong {
+    min-width: 52px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .liveInfo span {
+    font-size: 13px;
+  }
+
+  .liveSubtext {
+    font-size: 11px;
+  }
+
+  .banner2Inner {
+    padding: 28px 22px;
+    gap: 12px;
+  }
+
+  .finalCta {
+    margin-top: 20px;
+    margin-bottom: 32px;
+    padding: 28px 22px;
+  }
+
+  .finalCta h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
   }
 }

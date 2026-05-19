@@ -104,7 +104,7 @@ const translations = {
     heroTitle: 'Vende $30 y recibe $80.',
     heroText:
       'Tienes 15 días para alcanzar la meta del Flinboost. Llega a $30 en ventas válidas y recibe $50 extra — $80 en total.',
-    heroButton: 'Entrar al Flinboost',
+    heroButton: 'Entrar al desafío',
     heroSecondButton: 'Ver cómo funciona',
 
     liveProgress: 'Flinboost activo',
@@ -193,9 +193,9 @@ const translations = {
     banner2TitlePost: 'creadoras en el Flinboost',
     banner2Sub: 'Tu contenido ya puede estar generando más ventas ahora mismo.',
     banner2Highlight: 'Solo necesitas llegar a $30 en ventas válidas.',
-    banner2Cta: 'Entrar al Flinboost',
+    banner2Cta: 'Entrar al desafío',
 
-    footer: 'Flinboost',
+    footer: 'Flimbo.com',
   },
 
   en: {
@@ -207,7 +207,7 @@ const translations = {
     heroTitle: 'Sell $30 and get $80.',
     heroText:
       'You have 15 days to hit the Flinboost goal. Reach $30 in valid sales and receive $50 extra — $80 total.',
-    heroButton: 'Join the Flinboost',
+    heroButton: 'Join the challenge',
     heroSecondButton: 'See how it works',
 
     liveProgress: 'Flinboost active',
@@ -296,9 +296,9 @@ const translations = {
     banner2TitlePost: 'creators in the Flinboost',
     banner2Sub: 'Your content can already be generating more sales right now.',
     banner2Highlight: 'You just need to reach $30 in valid sales.',
-    banner2Cta: 'Join the Flinboost',
+    banner2Cta: 'Join the challenge',
 
-    footer: 'Flinboost',
+    footer: 'Flimbo.com',
   },
 
   pt: {
@@ -310,7 +310,7 @@ const translations = {
     heroTitle: 'Venda $30 e receba $80.',
     heroText:
       'Você tem 15 dias para alcançar a meta do Flinboost. Chegue a $30 em vendas válidas e receba $50 extra — $80 no total.',
-    heroButton: 'Entrar no Flinboost',
+    heroButton: 'Entrar no desafio',
     heroSecondButton: 'Ver como funciona',
 
     liveProgress: 'Flinboost ativo',
@@ -399,9 +399,9 @@ const translations = {
     banner2TitlePost: 'criadoras no Flinboost',
     banner2Sub: 'Seu conteúdo já pode estar gerando mais vendas agora mesmo.',
     banner2Highlight: 'Você só precisa chegar a $30 em vendas válidas.',
-    banner2Cta: 'Entrar no Flinboost',
+    banner2Cta: 'Entrar no desafio',
 
-    footer: 'Flinboost',
+    footer: 'Flimbo.com',
   },
 }
 
@@ -529,12 +529,13 @@ function App() {
             </div>
 
             <div className="liveCard">
-              <div className="liveTop">
-                <span>{t.liveProgress}</span>
+              <div className="liveCountRow">
                 <strong>+{creatorCount}</strong>
+                <div className="liveInfo">
+                  <span>{t.liveText}</span>
+                  <p className="liveSubtext">{t.liveSubtext}</p>
+                </div>
               </div>
-              <h3>{t.liveText}</h3>
-              <p className="liveSubtext">{t.liveSubtext}</p>
               <div className="liveProgressTrack">
                 <div className="liveProgressFill" />
               </div>
@@ -661,7 +662,6 @@ function App() {
           <div className="banner2Inner">
             <div className="b2OrbA" />
             <div className="b2OrbB" />
-            <span className="bannerBadge bannerBadgePink">{t.banner2Badge}</span>
             <h2 className="b2Title">
               {t.banner2TitlePre} <span className="b2Count">+{creatorCount}</span> {t.banner2TitlePost}
             </h2>
@@ -694,7 +694,6 @@ function App() {
       {/* ── 6. Final CTA ── */}
       <section className="finalCta">
         <div>
-          <span className="sectionBadge">Flinboost</span>
           <h2>{t.finalTitle}</h2>
           <p>{t.finalText}</p>
         </div>
@@ -704,7 +703,9 @@ function App() {
       </section>
 
       <footer className="footer">
-        <span>{t.footer}</span>
+        <a href="https://flimbo.com" target="_blank" rel="noreferrer" className="footerLink">
+          Flimbo.com
+        </a>
         <span>© 2026</span>
       </footer>
 
