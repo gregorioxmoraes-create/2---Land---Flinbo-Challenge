@@ -530,11 +530,11 @@ function App() {
 
             <div className="liveCard">
               <div className="liveCountRow">
-                <strong>+{creatorCount}</strong>
                 <div className="liveInfo">
                   <span>{t.liveText}</span>
                   <p className="liveSubtext">{t.liveSubtext}</p>
                 </div>
+                <strong>+{creatorCount}</strong>
               </div>
               <div className="liveProgressTrack">
                 <div className="liveProgressFill" />
@@ -598,6 +598,9 @@ function App() {
           <span className="sectionBadge">02</span>
           <h2>{t.rulesTitle}</h2>
           <p>{t.rulesText}</p>
+          <button className="termsButton" onClick={() => setIsTermsOpen(true)}>
+            {t.termsButton}
+          </button>
         </div>
 
         <div className="rulesColumn">
@@ -609,9 +612,6 @@ function App() {
               </div>
             ))}
           </div>
-          <button className="termsButton" onClick={() => setIsTermsOpen(true)}>
-            {t.termsButton}
-          </button>
         </div>
       </section>
 
@@ -666,10 +666,12 @@ function App() {
               {t.banner2TitlePre} <span className="b2Count">+{creatorCount}</span> {t.banner2TitlePost}
             </h2>
             <p className="b2Sub">{t.banner2Sub}</p>
-            <p className="b2Highlight">{t.banner2Highlight}</p>
-            <a className="primaryButton ctaPulse b2Cta" href={whatsappLink} target="_blank" rel="noreferrer">
-              {t.banner2Cta}
-            </a>
+            <div className="b2HighlightRow">
+              <p className="b2Highlight">{t.banner2Highlight}</p>
+              <a className="primaryButton ctaPulse" href={whatsappLink} target="_blank" rel="noreferrer">
+                {t.banner2Cta}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -703,9 +705,15 @@ function App() {
       </section>
 
       <footer className="footer">
-        <a href="https://flimbo.com" target="_blank" rel="noreferrer" className="footerLink">
-          Flimbo.com
-        </a>
+        <div className="footerLinks">
+          <a href="https://flimbo.com" target="_blank" rel="noreferrer" className="footerLink">
+            Flimbo.com
+          </a>
+          <span className="footerSep">·</span>
+          <a href="https://linktree.com/flinbo" target="_blank" rel="noreferrer" className="footerLink">
+            Linktree
+          </a>
+        </div>
         <span>© 2026</span>
       </footer>
 
