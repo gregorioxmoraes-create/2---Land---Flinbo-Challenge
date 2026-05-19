@@ -447,6 +447,12 @@ function App() {
     return () => window.clearInterval(countTimer)
   }, [])
 
+  useEffect(() => {
+    const isOpen = isTermsOpen || !!activeVideoUrl
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [isTermsOpen, activeVideoUrl])
+
   return (
     <main className="page">
       <div className="backgroundGlow glowOne" />
@@ -737,13 +743,15 @@ function App() {
 
       {/* ── Terms modal ── */}
       {isTermsOpen && (
-        <div className="modalOverlay" onClick={() => setIsTermsOpen(false)}>
+        <div className="modalOverlay termsOverlay" onClick={() => setIsTermsOpen(false)}>
           <div className="termsModal" onClick={(e) => e.stopPropagation()}>
-            <div className="modalHeader">
+            <div className="modalHeader termsModalHeader">
               <h3>{t.termsTitle}</h3>
               <button onClick={() => setIsTermsOpen(false)}>{t.close}</button>
             </div>
-            <p className="termsModalText">{t.termsText}</p>
+            <div className="termsModalBody">
+              <p className="termsModalText">{t.termsText}</p>
+            </div>
           </div>
         </div>
       )}
